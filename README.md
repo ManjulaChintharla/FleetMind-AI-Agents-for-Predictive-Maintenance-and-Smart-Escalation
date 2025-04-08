@@ -1,26 +1,57 @@
 ## **Overview**:
 
-The Fleet Maintenance AI Scenario is an end-to-end solution that predicts vehicle maintenance needs using real-time telemetry data. It combines Azure Data Factory, PostgreSQL, Azure Machine Learning, Azure AI Search, and GPT-powered chat to deliver predictive insights and intelligent suggestions for the logistics and transportation industry.
+The Fleet Maintenance AI Scenario is an end-to-end AI solution designed to predict vehicle maintenance needs using real-time telemetry data. It leverages the full Microsoft Azure ecosystem—Azure Data Factory, PostgreSQL, Azure Machine Learning, Azure AI Search, and Azure OpenAI—to provide predictive insights and intelligent recommendations for the transportation and logistics sector.
 
+## Problem Statement
 
+Fleet managers lack a proactive system to anticipate vehicle failures and schedule maintenance efficiently, leading to increased downtime and operational costs.
+
+## Solution Overview
+
+- Trained a predictive model (ExtraTreesClassifier) using Azure Machine Learning
+
+- Ingested and stored cleaned telemetry data in Azure PostgreSQL
+
+- Generated semantic embeddings for maintenance documents using Azure OpenAI
+
+- Created vector and keyword indexes using Azure Cognitive Search
+
+- Built a GPT-powered chat interface to retrieve predictions and document suggestions
+  
 # Azure End-to-End AI Fleet Maintenance Platform
 
-This project is a complete AI-powered pipeline for predictive vehicle maintenance, tailored for data scientists and MLOps engineers. It demonstrates how to build an end-to-end solution—from ingesting raw fleet sensor data (IOT) to delivering intelligent maintenance predictions and document-based suggestions via a conversational AI assistant. Built entirely on Microsoft Azure, it combines real-time telemetry, Azure machine learning, Azure vector search, and Azure OpenAI GPT-powered chat to help logistics companies minimize downtime and make data-driven maintenance decisions.
+This project is a full-stack AI-powered pipeline tailored for data scientists and MLOps engineers. It shows how to build a production-ready AI solution—from ingesting raw IoT fleet data to delivering intelligent predictions and document-based insights via a chat interface. The platform integrates real-time sensor analysis, machine learning, vector-based search, and conversational AI—all within Microsoft Azure.
 
 ###  Pipeline Overview
 
-- **Azure Data Factory** for data ingestion from multiple sources
-- **PostgreSQL** for storing cleaned fleet data
-- **Azure Machine Learning** for training and deploying predictive models
-- **OpenAI Embeddings + PostgreSQL** for text vectorization
-- **Azure AI Search** to enable intelligent search
-- **Azure OpenAI** to build a chatbot with document and prediction query capabilities
+- **Azure Data Factory** – Data ingestion from multiple sources
+
+- **Azure PostgreSQL** – Centralized storage for cleaned fleet data
+
+- **Azure Machine Learning** – Model training and deployment
+
+- **Azure OpenAI Embeddings + PostgreSQL** – Text vectorization and document storage
+
+- **Azure AI Search** – Vector and keyword search for maintenance documentation
+
+- **Azure OpenAI (GPT+ textembedding)** – Chatbot interface that merges predictions with document insights
 
 ###  Features
 
-- Predict fleet maintenance using ML models
-- Query insights from data and documents using semantic search
-- Chatbot interface powered by OpenAI that connects to your backend systems
+- Predict upcoming vehicle maintenance using ML
 
+- Search maintenance documents with semantic understanding
+
+- Interact via a chatbot powered by Azure OpenAI
+
+- Real-time connection between chat inputs, prediction models, and search results
+
+
+##  How to Run
+- Set up your environment variables in a .env file
+
+- Run the notebooks sequentially from the notebooks/ directory
+
+- Deploy and interact with the chatbot for live predictions and document tips
 
 
