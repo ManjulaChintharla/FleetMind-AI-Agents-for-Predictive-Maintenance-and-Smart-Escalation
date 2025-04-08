@@ -48,6 +48,8 @@ This project is a full-stack AI-powered pipeline tailored for data scientists an
 
 
 ##  How to Run
+- run script.sh to setup environment
+  
 - Set up your environment variables in a .env file
 
 - Run the notebooks sequentially from the notebooks/ directory
