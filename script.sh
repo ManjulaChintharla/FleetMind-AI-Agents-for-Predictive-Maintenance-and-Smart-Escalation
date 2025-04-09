@@ -214,7 +214,7 @@ else
     exit 1
 fi
 # move fleet_data file to the storage account container.
-az storage blob upload --account-name $storageAccountName --container-name $CONTAINER_NAME --name fleet_data.csv --file ../data/raw_fleet_data.csv --auth-mode key
+az storage blob upload --account-name $storageAccountName --container-name $CONTAINER_NAME --name fleet_data.csv --file ./data/raw_fleet_data.csv --auth-mode key
 
 #Create Azure OpenAI service
 az cognitiveservices account create --name $AZURE_OPENAI_NAME --resource-group $RESOURCE_GROUP --location $AI_REGION --kind OpenAI --sku S0  --yes
