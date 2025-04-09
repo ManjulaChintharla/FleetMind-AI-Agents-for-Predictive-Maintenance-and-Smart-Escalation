@@ -16,11 +16,11 @@ Fleet managers lack a proactive system to anticipate vehicle failures and schedu
 
 - Created vector and keyword indexes using Azure Cognitive Search
 
-- Built a GPT-powered chat interface to retrieve predictions and document suggestions
+- Built a chatapp interface to retrieve predictions and document suggestions
   
 # Azure End-to-End AI Fleet Maintenance Platform
 
-This project is a full-stack AI-powered pipeline tailored for data scientists and MLOps engineers. It shows how to build a production-ready AI solution—from ingesting raw IoT fleet data to delivering intelligent predictions and document-based insights via a chat interface. The platform integrates real-time sensor analysis, machine learning, vector-based search, and conversational AI—all within Microsoft Azure.
+This project is a full-stack AI-powered pipeline tailored for data scientists, MLOps engineers and AI Engineers. It shows how to build a production-ready AI solution—from ingesting raw IoT fleet data to delivering intelligent predictions and document-based insights via a chat interface. The platform integrates real-time sensor analysis, machine learning, vector-based search, and conversational AI—all within Microsoft Azure.
 
 ###  Pipeline Overview
 
