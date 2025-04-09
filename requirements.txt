@@ -1,0 +1,18 @@
+# === Core Data Science & ML ===
+pandas 2.2.3
+numpy
+
+
+# === Azure ML SDK & Identity ===
+azure-ai-ml
+azure-identity
+azureml-core
+azureml-sdk
+azureml-dataprep
+
+# === PostgreSQL & SQL Support ===
+SQLAlchemy 1.4.54
+psycopg2-binary
+
+# === Fix for marshmallow compatibility ===
+marshmallow==3.23.0
