@@ -4,7 +4,6 @@ The Fleet Maintenance AI Scenario is an end-to-end AI solution designed to predi
 
 ![image](https://github.com/user-attachments/assets/493344dc-913e-40ea-ab00-fca04c3d26aa)
 
-
 ## Problem Statement
 
 Fleet managers lack a proactive system to anticipate vehicle failures and schedule maintenance efficiently, leading to increased downtime and operational costs.
@@ -59,4 +58,5 @@ This project is a full-stack AI-powered pipeline tailored for data scientists, M
 
 - Deploy and interact with the chatbot for live predictions and document tips
 
+![image](https://github.com/user-attachments/assets/46886829-f5fd-4651-a713-6806654bc13f)
 
