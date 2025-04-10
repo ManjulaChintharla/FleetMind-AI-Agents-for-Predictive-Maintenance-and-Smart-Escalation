@@ -2,6 +2,9 @@
 
 The Fleet Maintenance AI Scenario is an end-to-end AI solution designed to predict vehicle maintenance needs using real-time telemetry data. It leverages the full Microsoft Azure ecosystem—Azure Data Factory, PostgreSQL, Azure Machine Learning, Azure AI Search, and Azure OpenAI—to provide predictive insights and intelligent recommendations for the transportation and logistics sector.
 
+![image](https://github.com/user-attachments/assets/493344dc-913e-40ea-ab00-fca04c3d26aa)
+
+
 ## Problem Statement
 
 Fleet managers lack a proactive system to anticipate vehicle failures and schedule maintenance efficiently, leading to increased downtime and operational costs.
