@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contoso Fleet Guard</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 900px;
+      margin: auto;
+      background-color: #ffffff;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      height: 90vh;
+    }
+
+    .header {
+      background-color: #0078D4;
+      color: white;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .chat-window {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f9fbfd;
+    }
+
+    .message {
+      display: flex;
+      margin-bottom: 14px;
+    }
+
+    .message.user {
+      justify-content: flex-end;
+    }
+
+    .message.bot {
+      justify-content: flex-start;
+    }
+
+    .message-content {
+      padding: 12px 16px;
+      border-radius: 12px;
+      max-width: 70%;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .message.user .message-content {
+      background-color: #0078D4;
+      color: #fff;
+      border-bottom-right-radius: 0;
+    }
+
+    .message.bot .message-content {
+      background-color: #eaf6ff;
+      color: #333;
+      border-bottom-left-radius: 0;
+    }
+
+    .footer {
+      display: flex;
+      padding: 16px;
+      border-top: 1px solid #ddd;
+      background-color: #fff;
+    }
+
+    .footer input[type="text"] {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px 0 0 8px;
+      font-size: 15px;
+    }
+
+    .footer button {
+      padding: 12px 20px;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+
+    .footer button:hover {
+      background-color: #005fa3;
+    }
+
+    .cost-highlight {
+      font-weight: bold;
+      color: #0078D4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Contoso Fleet Guard chatapp</h1>
+      <p>Get smart maintenance tips, cost estimates, and quick insights from your fleet data.</p>
+    </div>
+    <div class="chat-window" id="chatbox">
+      <!-- Chat messages will appear here -->
+    </div>
+    <div class="footer">
+      <input type="text" id="message" placeholder="Ask about your fleet, e.g., 'Coolant temp is 113°C'" />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("message");
+      const message = input.value.trim();
+      if (!message) return;
+
+      const chatbox = document.getElementById("chatbox");
+
+      // Append user message
+      chatbox.innerHTML += `
+        <div class="message user">
+          <div class="message-content">${message}</div>
+        </div>`;
+
+      input.value = "";
+
+      // Fetch response
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+
+      // Append bot response
+      chatbox.innerHTML += `
+        <div class="message bot">
+          <div class="message-content">${data.response}</div>
+        </div>`;
+
+      // Scroll to bottom
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+flask
+openai==1.72.0
+python-dotenv
+azure-search-documents==11.4.0
