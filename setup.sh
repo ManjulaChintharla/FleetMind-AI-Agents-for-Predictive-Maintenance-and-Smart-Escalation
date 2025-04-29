@@ -17,6 +17,7 @@ RESOURCE_PROVIDER2="Microsoft.Cdn"
 RESOURCE_PROVIDER3="Microsoft.AlertsManagement"
 RESOURCE_PROVIDER4="Microsoft.Web"
 RESOURCE_PROVIDER5="Microsoft.DBforPostgreSQL"
+RESOURCE_PROVIDER6="Microsoft.DataFactory"
 # REGIONS=("eastus" "westus" "centralus" "northeurope" "westeurope")
 REGIONS=("eastus" "westus" "centralus" )
 AIREGIONS=("eastus" "southcentralus" )
@@ -74,6 +75,7 @@ az provider register --namespace $RESOURCE_PROVIDER2
 az provider register --namespace $RESOURCE_PROVIDER3
 az provider register --namespace $RESOURCE_PROVIDER4
 az provider register --namespace $RESOURCE_PROVIDER5
+az provider register --namespace $RESOURCE_PROVIDER6
 
 # Creating the resource group , workspace and setting to default
 echo "Create a resource group and set as default:"
