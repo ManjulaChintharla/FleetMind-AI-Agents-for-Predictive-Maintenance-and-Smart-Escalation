@@ -1,4 +1,4 @@
-# 🚗 Contoso SmartFleet Assistant – Azure OpenAI + Azure AI Search
+#  Contoso SmartFleet Assistant – Azure OpenAI + Azure AI Search
 
 from flask import Flask, request, jsonify, render_template
 from openai import AzureOpenAI
@@ -6,7 +6,6 @@ import os
 from dotenv import load_dotenv
 from azure.search.documents import SearchClient
 from azure.search.documents.models import VectorizedQuery
-#from azure.search.documents.indexes.models import VectorizedQuery
 from azure.core.credentials import AzureKeyCredential
 import re
 
@@ -16,7 +15,7 @@ load_dotenv()
 # Flask setup
 app = Flask(__name__)
 
-# Azure OpenAI setup (new SDK)
+# Azure OpenAI setup
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),
     api_version="2023-05-15",
@@ -52,7 +51,7 @@ def ask():
         # Azure AI Search vector query
         vector_query = VectorizedQuery(vector=embedding, fields="embedding")
         results = search_client.search(
-            search_text=" ", 
+            search_text=" ",
             vector_queries=[vector_query]
         )
 
@@ -83,12 +82,17 @@ Respond in bullet points with 2–3 actionable tips. Include cost estimation nex
 
         answer = response.choices[0].message.content
 
+        # Remove Markdown formatting: **bold**, *italic*
+        cleaned_answer = re.sub(r'\*\*(.*?)\*\*', r'\1', answer)  # Remove **bold**
+        cleaned_answer = re.sub(r'\*(.*?)\*', r'\1', cleaned_answer)  # Remove *italic*
+
         # Highlight cost figures like $100–$500
-        highlighted = re.sub(r"(\$\d+[kK]?[\+\-]?\s?(–|-)?\s?\$?\d*[kK]?)", r"<span class='cost-highlight'>\1</span>", answer)
+        highlighted = re.sub(r"(\$\d+[kK]?[\+\-]?\s?(–|-)?\s?\$?\d*[kK]?)", r"<span class='cost-highlight'>\1</span>", cleaned_answer)
+
         return jsonify({"response": highlighted})
 
     except Exception as e:
-        return jsonify({"response": f"⚠️ An error occurred:\n\n{str(e)}"})
+        return jsonify({"response": f" An error occurred:\n\n{str(e)}"})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
